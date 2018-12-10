@@ -1,0 +1,18 @@
+Temp Sensor DS18B20
+Sensor1 - 30 yellow
+Sensor2 - 31 orange
+
+Relay
+IN1 - 40 white
+IN2 - 41 black
+Vcc - +5V
+GND - GND
+
+Platinum temp sensor - MAX31865
+CS - 53 blue
+SDI - 51 green
+SDO - 50 gray
+CLK - 52 purple
+VIN - +5V
+GND - GND
+
