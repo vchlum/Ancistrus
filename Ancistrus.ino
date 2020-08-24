@@ -4,6 +4,8 @@
 #include <EEPROM.h>
 #include <Adafruit_MAX31865.h>
 
+#define MENU_TIMEOUT 90
+
 /******************************
  * Temp Sensor MAX31865
  ******************************/
@@ -353,7 +355,7 @@ void doMenu(){
                 }
                 break;                
         }
-    } while (inactive_time + 10 >= millis()/1000 && lcdKey != btnSELECT);
+    } while (inactive_time + MENU_TIMEOUT >= millis()/1000 && lcdKey != btnSELECT);
 
     lcd.clear();
 
@@ -435,11 +437,11 @@ void loop(void) {
 
     lcd.setCursor(15,0);
     if (manual1 == 0) {
-        if (threshold1 < temp1) {
+        if (threshold1 <= temp1) {
             if (relayStatus1 == 0)
                 switchOnRelay(1);
         }
-        if (threshold1 > temp1 + tolerance) {
+        if (threshold1 >= temp1 + tolerance) {
             if (relayStatus1 == 1)
                 switchOffRelay(1);
         }
